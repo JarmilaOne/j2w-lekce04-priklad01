@@ -38,12 +38,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Lekce 1</td>
-            <td>21. dubna 2021</td>
-            <td>18:00–20:30</td>
-            <td>V mechu</td>
+        <tr th:each="lekce : ${lekceAll}">
+            <td th:text="${lekce.nazev}">Lekce 1</td>
+            <td th:text="${lekce.datum}">21. dubna 2021</td>
+            <td th:text="${lekce.casOd} +' - '+ ${lekce.casDo}">18:00–20:30</td>
+            <td th:text="${lekce.misto}">V mechu</td>
         </tr>
+        <!--
         <tr>
             <td>Lekce 2</td>
             <td>28. dubna 2021</td>
@@ -56,6 +57,7 @@
             <td>18:00–20:30</td>
             <td><em>bude upřesněno</em></td>
         </tr>
+        -->
         </tbody>
     </table>
 </div>

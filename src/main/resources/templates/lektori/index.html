@@ -32,10 +32,13 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>Markéta Pátková</td>
-            <td><i class="las la-bell"></i> workshopistka</td>
+        <tr th:each="lektor : ${lektori}">
+            <td th:text="${lektor.jmeno}">Markéta Pátková</td>
+            <td th:if="${lektor.role} == ${T(cz.czechitas.java2webapps.lekce4.entity.Role).WORKSHOPISTKA}"><i class="las la-bell"></i> workshopistka</td>
+            <td th:if="${lektor.role} == ${T(cz.czechitas.java2webapps.lekce4.entity.Role).KOUC}"><i class="las la-laptop-code"></i> kouč</td>
+            <td th:if="${lektor.role} == ${T(cz.czechitas.java2webapps.lekce4.entity.Role).LEKTOR}"><i class="las la-graduation-cap"></i> lektor</td>
         </tr>
+        <!--
         <tr>
             <td>Adam Vyšínský</td>
             <td><i class="las la-laptop-code"></i> kouč</td>
@@ -68,6 +71,7 @@
             <td>Filip Jirsák</td>
             <td><i class="las la-graduation-cap"></i> lektor</td>
         </tr>
+        -->
         </tbody>
     </table>
 
