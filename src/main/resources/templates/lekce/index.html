@@ -40,9 +40,16 @@
         <tbody>
         <tr th:each="lekce : ${lekceAll}">
             <td th:text="${lekce.nazev}">Lekce 1</td>
-            <td th:text="${lekce.datum}">21. dubna 2021</td>
-            <td th:text="${lekce.casOd} +' - '+ ${lekce.casDo}">18:00–20:30</td>
-            <td th:text="${lekce.misto}">V mechu</td>
+            <td th:text="${#temporals.format(lekce.datum)}">21. dubna 2021</td>
+            <td>
+            <span th:text="${#temporals.format(lekce.casOd, 'H:mm')}">18:00</span>
+            <span> - </span>
+            <span th:text="${#temporals.format(lekce.casDo, 'H:mm')}">18:00</span>
+            </td>
+            <td>
+            <span th:if="${lekce.misto} != null" th:text="${lekce.misto}">V mechu</span>
+            <span><em th:if="${lekce.misto} == null">bude upřesněno</em></span>
+            </td>
         </tr>
         <!--
         <tr>
